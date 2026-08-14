@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuiz - Gaya Hidup Digital</title>
+
+    <style>
+        /* =========================================
+           WARNA WEBSITE
+           ========================================= */
+        :root {
+            --warna-utama: #FCDFBA;
+            --warna-latar: #FEF3E7;
+            --warna-gelap: #2F3542;
+            --warna-coklat: #B9826B;
+            --warna-putih: #FFFFFF;
+            --warna-bar-menu: #0b2545;
+        }
+
+        /* =========================================
+           ASAS WEBSITE
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--warna-latar);
+            color: var(--warna-gelap);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           HEADER & LOGO (DITAMBAH)
+           ========================================= */
+        header {
+            background-color: var(--warna-putih);
+            padding: 15px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            background-color: var(--warna-utama);
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* =========================================
+           BAR MENU NAVIGASI (DITAMBAH)
+           ========================================= */
+        nav {
+            background-color: var(--warna-bar-menu);
+            width: 100%;
+            padding: 12px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--warna-putih);
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px 12px;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--warna-utama);
+            border-bottom: 2px solid var(--warna-utama);
+        }
+
+        /* =========================================
+           BAHAGIAN KUIZ
+           ========================================= */
+        .kuiz-section {
+            min-height: 100vh;
+            background-color: var(--warna-latar);
+            padding: 80px 7%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* =========================================
+           TAJUK KUIZ
+           ========================================= */
+        .tajuk-kuiz {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .tajuk-kuiz small {
+            color: var(--warna-coklat);
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-size: 14px;
+        }
+
+        .tajuk-kuiz h1 {
+            font-size: 42px;
+            margin-top: 10px;
+            color: var(--warna-gelap);
+        }
+
+        .tajuk-kuiz p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            font-size: 17px;
+            color: #555;
+        }
+
+        /* =========================================
+           KAD KUIZ
+           ========================================= */
+        .kuiz-kad {
+            width: 100%;
+            max-width: 750px;
+            background-color: var(--warna-putih);
+            border: 2px solid var(--warna-utama);
+            border-radius: 25px;
+            padding: 45px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kuiz-kad::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--warna-coklat);
+        }
+
+        .kuiz-kad:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+        }
+
+        /* =========================================
+           IKON KUIZ
+           ========================================= */
+        .kuiz-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            background-color: var(--warna-utama);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--warna-gelap);
+        }
+
+        /* =========================================
+           TAJUK DALAM KAD
+           ========================================= */
+        .kuiz-kad h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+            color: var(--warna-gelap);
+        }
+
+        .kuiz-kad p {
+            font-size: 17px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        /* =========================================
+           MAKLUMAT KUIZ
+           ========================================= */
+        .maklumat-kuiz {
+            background-color: var(--warna-latar);
+            border: 1px solid var(--warna-utama);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .maklumat-kuiz p {
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: var(--warna-gelap);
+        }
+
+        .maklumat-kuiz p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* =========================================
+           BUTANG KUIZ
+           ========================================= */
+        .butang-kuiz {
+            display: inline-block;
+            background-color: var(--warna-coklat);
+            color: var(--warna-putih);
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: 0.3s;
+            box-shadow: 0 6px 15px rgba(185,130,107,0.25);
+        }
+
+        .butang-kuiz:hover {
+            transform: translateY(-4px);
+            background-color: var(--warna-gelap);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: var(--warna-gelap);
+            color: var(--warna-putih);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        /* =========================================
+           RESPONSIVE TABLET
+           ========================================= */
+        @media (max-width: 850px) {
+            header {
+                justify-content: center;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .kuiz-section {
+                padding: 60px 5%;
+            }
+
+            .tajuk-kuiz h1 {
+                font-size: 36px;
+            }
+
+            .kuiz-kad {
+                padding: 35px;
+            }
+        }
+
+        /* =========================================
+           RESPONSIVE TELEFON
+           ========================================= */
+        @media (max-width: 500px) {
+            .kuiz-section {
+                padding: 45px 5%;
+            }
+
+            .tajuk-kuiz {
+                margin-bottom: 30px;
+            }
+
+            .tajuk-kuiz small {
+                font-size: 12px;
+                letter-spacing: 2px;
+            }
+
+            .tajuk-kuiz h1 {
+                font-size: 29px;
+            }
+
+            .tajuk-kuiz p {
+                font-size: 15px;
+            }
+
+            .kuiz-kad {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .kuiz-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 24px;
+            }
+
+            .kuiz-kad h2 {
+                font-size: 24px;
+            }
+
+            .kuiz-kad p {
+                font-size: 15px;
+            }
+
+            .maklumat-kuiz {
+                padding: 15px;
+            }
+
+            .butang-kuiz {
+                padding: 13px 22px;
+                font-size: 15px;
+            }
+
+            footer {
+                font-size: 12px;
+                padding: 25px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER LOGO (DITAMBAH)
+         ========================================= -->
+    <header>
+        <a href="lamanutama.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-box">GD</div>
+                <div>GAYA HIDUP<br>DIGITAL</div>
+            </div>
+        </a>
+    </header>
+
+    <!-- =========================================
+         BAR MENU NAVIGASI (DITAMBAH)
+         ========================================= -->
+    <nav>
+        <a href="lamanutama.html">Laman Utama</a>
+        <a href="kandungan.html">Kandungan</a>
+        <a href="kuizdigital.html" class="active">Kuiz</a>
+        <a href="rujukan.html">Rujukan</a>
+    </nav>
+
+    <!-- =========================================
+         BAHAGIAN KUIZ
+         ========================================= -->
+    <section class="kuiz-section" id="kuiz">
+
+        <!-- TAJUK KUIZ -->
+        <div class="tajuk-kuiz">
+            <small>UJI PENGETAHUAN ANDA</small>
+            <h1>Kuiz Gaya Hidup Digital</h1>
+            <p>
+                Uji pengetahuan anda tentang gaya hidup digital melalui kuiz yang telah disediakan.
+            </p>
+        </div>
+
+        <!-- =====================================
+             KAD KUIZ
+             ===================================== -->
+        <div class="kuiz-kad">
+
+            <!-- IKON -->
+            <div class="kuiz-icon">GD</div>
+
+            <!-- TAJUK -->
+            <h2>Jawab Kuiz</h2>
+
+            <p>
+                Adakah anda sudah memahami tentang gaya hidup digital? Mari uji pengetahuan anda sekarang!
+            </p>
+
+            <!-- MAKLUMAT KUIZ -->
+            <div class="maklumat-kuiz">
+                <p><strong>Tajuk:</strong> Gaya Hidup Digital</p>
+                <p><strong>Aktiviti:</strong> Kuiz interaktif (Google Form)</p>
+                <p><strong>Arahan:</strong> Klik butang di bawah untuk menjawab kuiz.</p>
+            </div>
+
+            <!-- BUTANG KUIZ (PAUTAN GOOGLE FORM) -->
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScR3ofAt6IzpZ3yhzi1E8-9Z83h2IfM5z7P5VnfV8w76ZCeag/viewform?usp=publish-editor"
+               target="_blank"
+               class="butang-kuiz">
+                KLIK UNTUK MENJAWAB KUIZ →
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer>
+        <p>
+            ©️ 2026 Gaya Hidup Digital |
+            Dibangunkan oleh FATIHAH BINTI ABDULLAH |
+            1 DIPLOMA TEKNOLOGI MAKLUMAT
+        </p>
+    </footer>
+
+</body>
+
+</html>

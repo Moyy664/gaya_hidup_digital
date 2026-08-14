@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rujukan - Gaya Hidup Digital</title>
+
+
+    <style>
+
+        /* =========================================
+           WARNA WEBSITE
+           ========================================= */
+
+        :root {
+
+            --warna-utama: #FCDFBA;
+
+            --warna-latar: #FEF3E7;
+
+            --warna-gelap: #2F3542;
+
+            --warna-coklat: #B9826B;
+
+            --warna-putih: #FFFFFF;
+
+            --warna-bar-menu: #0b2545;
+
+        }
+
+
+        /* =========================================
+           ASAS WEBSITE
+           ========================================= */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background-color: var(--warna-latar);
+
+            color: var(--warna-gelap);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================================
+           HEADER & LOGO (DITAMBAH)
+           ========================================= */
+
+        header {
+
+            background-color: var(--warna-putih);
+
+            padding: 15px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+        }
+
+
+        .logo-link {
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo-box {
+
+            width: 48px;
+
+            height: 48px;
+
+            background-color: var(--warna-utama);
+
+            border-radius: 14px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================================
+           BAR MENU NAVIGASI (DITAMBAH)
+           ========================================= */
+
+        nav {
+
+            background-color: var(--warna-bar-menu);
+
+            width: 100%;
+
+            padding: 12px 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 35px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        nav a {
+
+            text-decoration: none;
+
+            color: var(--warna-putih);
+
+            font-weight: bold;
+
+            font-size: 16px;
+
+            padding: 5px 12px;
+
+            transition: 0.3s;
+
+        }
+
+
+        nav a:hover, nav a.active {
+
+            color: var(--warna-utama);
+
+            border-bottom: 2px solid var(--warna-utama);
+
+        }
+
+
+        /* =========================================
+           BAHAGIAN RUJUKAN
+           ========================================= */
+
+        .rujukan-section {
+
+            min-height: 100vh;
+
+            background-color: var(--warna-latar);
+
+            padding: 80px 7%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+        /* =========================================
+           TAJUK RUJUKAN
+           ========================================= */
+
+        .tajuk-rujukan {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .tajuk-rujukan small {
+
+            color: var(--warna-coklat);
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            font-size: 14px;
+
+        }
+
+
+        .tajuk-rujukan h1 {
+
+            font-size: 42px;
+
+            margin-top: 10px;
+
+            color: var(--warna-gelap);
+
+        }
+
+
+        .tajuk-rujukan p {
+
+            max-width: 650px;
+
+            margin: 15px auto 0;
+
+            font-size: 17px;
+
+            color: #555;
+
+        }
+
+
+        /* =========================================
+           KAD RUJUKAN
+           ========================================= */
+
+        .rujukan-kad {
+
+            width: 100%;
+
+            max-width: 850px;
+
+            background-color: var(--warna-putih);
+
+            border: 2px solid var(--warna-utama);
+
+            border-radius: 25px;
+
+            padding: 40px;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .rujukan-kad::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 8px;
+
+            background-color: var(--warna-coklat);
+
+        }
+
+
+        .rujukan-kad:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow: 0 18px 35px rgba(0,0,0,0.12);
+
+        }
+
+
+        /* =========================================
+           IKON RUJUKAN
+           ========================================= */
+
+        .rujukan-icon {
+
+            width: 75px;
+
+            height: 75px;
+
+            margin: 0 auto 20px;
+
+            background-color: var(--warna-utama);
+
+            border-radius: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 26px;
+
+            font-weight: bold;
+
+            color: var(--warna-gelap);
+
+        }
+
+
+        /* =========================================
+           TAJUK DALAM KAD
+           ========================================= */
+
+        .rujukan-kad h2 {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-bottom: 25px;
+
+            color: var(--warna-gelap);
+
+        }
+
+
+        /* =========================================
+           SENARAI RUJUKAN
+           ========================================= */
+
+        .senarai-rujukan {
+
+            background-color: var(--warna-latar);
+
+            border: 1px solid var(--warna-utama);
+
+            border-radius: 18px;
+
+            padding: 25px 30px;
+
+        }
+
+
+        .senarai-rujukan ul {
+
+            padding-left: 25px;
+
+        }
+
+
+        .senarai-rujukan li {
+
+            margin-bottom: 20px;
+
+            padding-left: 5px;
+
+        }
+
+
+        .senarai-rujukan li:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .senarai-rujukan li::marker {
+
+            color: var(--warna-coklat);
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================================
+           LINK RUJUKAN
+           ========================================= */
+
+        .senarai-rujukan a {
+
+            color: var(--warna-coklat);
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            word-break: break-word;
+
+            transition: 0.3s;
+
+        }
+
+
+        .senarai-rujukan a:hover {
+
+            color: var(--warna-gelap);
+
+            text-decoration: underline;
+
+        }
+
+
+        /* =========================================
+           LABEL SUMBER
+           ========================================= */
+
+        .nama-sumber {
+
+            display: block;
+
+            color: var(--warna-gelap);
+
+            font-weight: bold;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+
+        footer {
+
+            background-color: var(--warna-gelap);
+
+            color: var(--warna-putih);
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 14px;
+
+        }
+
+
+        footer p {
+
+            margin: 0;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE TABLET
+           ========================================= */
+
+        @media (max-width: 850px) {
+
+            header {
+
+                justify-content: center;
+
+            }
+
+            nav {
+
+                flex-wrap: wrap;
+
+                gap: 15px;
+
+            }
+
+            .rujukan-section {
+
+                padding: 60px 5%;
+
+            }
+
+
+            .tajuk-rujukan h1 {
+
+                font-size: 36px;
+
+            }
+
+
+            .rujukan-kad {
+
+                padding: 35px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           RESPONSIVE TELEFON
+           ========================================= */
+
+        @media (max-width: 500px) {
+
+            .rujukan-section {
+
+                padding: 45px 5%;
+
+            }
+
+
+            .tajuk-rujukan {
+
+                margin-bottom: 30px;
+
+            }
+
+
+            .tajuk-rujukan small {
+
+                font-size: 12px;
+
+                letter-spacing: 2px;
+
+            }
+
+
+            .tajuk-rujukan h1 {
+
+                font-size: 29px;
+
+            }
+
+
+            .tajuk-rujukan p {
+
+                font-size: 15px;
+
+            }
+
+
+            .rujukan-kad {
+
+                padding: 30px 20px;
+
+                border-radius: 20px;
+
+            }
+
+
+            .rujukan-icon {
+
+                width: 65px;
+
+                height: 65px;
+
+                font-size: 23px;
+
+            }
+
+
+            .rujukan-kad h2 {
+
+                font-size: 24px;
+
+            }
+
+
+            .senarai-rujukan {
+
+                padding: 20px;
+
+            }
+
+
+            .senarai-rujukan li {
+
+                font-size: 15px;
+
+                margin-bottom: 15px;
+
+            }
+
+
+            footer {
+
+                font-size: 12px;
+
+                padding: 25px 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HEADER LOGO (DITAMBAH)
+         ========================================= -->
+
+    <header>
+
+        <a href="lamanutama.html" class="logo-link">
+
+            <div class="logo">
+
+                <div class="logo-box">GD</div>
+
+                <div>GAYA HIDUP<br>DIGITAL</div>
+
+            </div>
+
+        </a>
+
+    </header>
+
+
+    <!-- =========================================
+         BAR MENU NAVIGASI (DITAMBAH)
+         ========================================= -->
+
+    <nav>
+
+        <a href="lamanutama.html">Laman Utama</a>
+
+        <a href="kandungan.html">Kandungan</a>
+
+        <a href="kuizdigital.html">Kuiz</a>
+
+        <a href="rujukan.html" class="active">Rujukan</a>
+
+    </nav>
+
+
+    <!-- =========================================
+         BAHAGIAN RUJUKAN
+         ========================================= -->
+
+    <section class="rujukan-section"
+             id="rujukan">
+
+
+        <!-- TAJUK RUJUKAN -->
+
+        <div class="tajuk-rujukan">
+
+            <small>
+                RUJUKAN
+            </small>
+
+
+            <h1>
+                Sumber Pembelajaran
+            </h1>
+
+
+            <p>
+
+                Berikut merupakan sumber yang
+                digunakan sebagai rujukan dalam
+                menghasilkan laman web Gaya Hidup
+                Digital.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =====================================
+             KAD RUJUKAN
+             ===================================== -->
+
+        <div class="rujukan-kad">
+
+
+            <!-- IKON -->
+
+            <div class="rujukan-icon">
+
+                RUJ
+
+            </div>
+
+
+            <!-- TAJUK -->
+
+            <h2>
+
+                Sumber Rujukan
+
+            </h2>
+
+
+
+            <!-- SENARAI RUJUKAN -->
+
+            <div class="senarai-rujukan">
+
+                <ul>
+
+
+                    <!-- RUJUKAN 1 -->
+
+                    <li>
+
+                        <span class="nama-sumber">
+
+                            KIGS Inventor - Malaysia
+
+                        </span>
+
+                        <a href="https://kigsinventor.wordpress.com/malaysia/"
+                           target="_blank">
+
+                            https://kigsinventor.wordpress.com/malaysia/
+
+                        </a>
+
+                    </li>
+
+
+
+                    <!-- RUJUKAN 2 -->
+
+                    <li>
+
+                        <span class="nama-sumber">
+
+                            Berita Harian - Pengaruh Media Sosial
+                            dalam Kehidupan Seharian
+
+                        </span>
+
+                        <a href="https://www.bharian.com.my/wanita/lain-lain/2024/10/1317394/pengaruh-media-sosial-dalam-kehidupan-seharian"
+                           target="_blank">
+
+                            https://www.bharian.com.my/wanita/lain-lain/2024/10/1317394/pengaruh-media-sosial-dalam-kehidupan-seharian
+
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+<!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer>
+        <p>
+            ©️ 2026 Gaya Hidup Digital |
+            Dibangunkan oleh FATIHAH BINTI ABDULLAH |
+            1 DIPLOMA TEKNOLOGI MAKLUMAT
+        </p>
+    </footer>
+
+
+</body>
+
+</html>

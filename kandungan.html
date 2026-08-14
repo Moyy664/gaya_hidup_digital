@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kandungan - Gaya Hidup Digital</title>
+
+
+    <style>
+
+        /* =====================================
+           WARNA WEBSITE
+           ===================================== */
+
+        :root {
+
+            --warna-utama: #FCDFBA;
+
+            --warna-latar: #FEF3E7;
+
+            --warna-gelap: #2F3542;
+
+            --warna-coklat: #B9826B;
+
+            --warna-putih: #FFFFFF;
+
+            --warna-bar-menu: #0b2545;
+
+        }
+
+
+        /* =====================================
+           ASAS WEBSITE
+           ===================================== */
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background-color: var(--warna-latar);
+
+            color: var(--warna-gelap);
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =====================================
+           HEADER & LOGO (DITAMBAH)
+           ===================================== */
+
+        header {
+
+            background-color: var(--warna-putih);
+
+            padding: 15px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+        }
+
+
+        .logo-link {
+
+            text-decoration: none;
+
+            color: inherit;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+        }
+
+
+        .logo-box {
+
+            width: 48px;
+
+            height: 48px;
+
+            background-color: var(--warna-utama);
+
+            border-radius: 14px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =====================================
+           BAR MENU NAVIGASI (DITAMBAH)
+           ===================================== */
+
+        nav {
+
+            background-color: var(--warna-bar-menu);
+
+            width: 100%;
+
+            padding: 12px 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 35px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+        }
+
+
+        nav a {
+
+            text-decoration: none;
+
+            color: var(--warna-putih);
+
+            font-weight: bold;
+
+            font-size: 16px;
+
+            padding: 5px 12px;
+
+            transition: 0.3s;
+
+        }
+
+
+        nav a:hover, nav a.active {
+
+            color: var(--warna-utama);
+
+            border-bottom: 2px solid var(--warna-utama);
+
+        }
+
+
+        /* =====================================
+           BAHAGIAN KANDUNGAN
+           ===================================== */
+
+        .konsep-section {
+
+            min-height: 100vh;
+
+            padding: 70px 7%;
+
+            background-color: var(--warna-latar);
+
+        }
+
+
+        /* =====================================
+           TAJUK
+           ===================================== */
+
+        .tajuk-section {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .tajuk-section small {
+
+            color: var(--warna-coklat);
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .tajuk-section h1 {
+
+            font-size: 42px;
+
+            margin-top: 10px;
+
+            color: var(--warna-gelap);
+
+        }
+
+
+        .tajuk-section p {
+
+            max-width: 700px;
+
+            margin: 15px auto 0;
+
+            font-size: 17px;
+
+        }
+
+
+        /* =====================================
+           KAD KANDUNGAN
+           ===================================== */
+
+        .kad-container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 30px;
+
+        }
+
+
+        /* =====================================
+           KAD
+           ===================================== */
+
+        .kad {
+
+            background-color: var(--warna-putih);
+
+            border: 2px solid var(--warna-utama);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+
+            transition: 0.3s;
+
+        }
+
+
+        .kad:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow: 0 15px 30px rgba(0,0,0,0.10);
+
+        }
+
+
+        /* =====================================
+           GAMBAR DALAM KAD
+           ===================================== */
+
+        .kad img {
+
+            width: 100%;
+
+            height: 230px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+
+            display: block;
+
+            margin-bottom: 22px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .kad:hover img {
+
+            transform: scale(1.02);
+
+        }
+
+
+        .kad h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+
+            color: var(--warna-gelap);
+
+        }
+
+
+        .kad ul {
+
+            padding-left: 25px;
+
+        }
+
+
+        .kad li {
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .kad li::marker {
+
+            color: var(--warna-coklat);
+
+        }
+
+
+        /* =====================================
+           VIDEO
+           ===================================== */
+
+        .video-kad {
+
+            max-width: 900px;
+
+            margin: 45px auto 0;
+
+            background-color: var(--warna-putih);
+
+            border: 2px solid var(--warna-utama);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            text-align: center;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+
+            transition: 0.3s;
+
+        }
+
+
+        .video-kad:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 15px 30px rgba(0,0,0,0.10);
+
+        }
+
+
+        .video-kad h2 {
+
+            font-size: 28px;
+
+            margin-bottom: 10px;
+
+            color: var(--warna-gelap);
+
+        }
+
+
+        .video-kad p {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .video-kad video {
+
+            width: 100%;
+
+            max-width: 800px;
+
+            border-radius: 15px;
+
+            display: block;
+
+            margin: auto;
+
+        }
+
+
+        /* =====================================
+           FOOTER
+           ===================================== */
+
+        footer {
+
+            background-color: var(--warna-gelap);
+
+            color: var(--warna-putih);
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 14px;
+
+            margin-top: 50px;
+
+        }
+
+
+        footer p {
+
+            margin: 5px 0;
+
+        }
+
+
+        /* =====================================
+           RESPONSIVE LAPTOP / TABLET
+           ===================================== */
+
+        @media (max-width: 850px) {
+
+            header {
+
+                justify-content: center;
+
+            }
+
+            nav {
+
+                flex-wrap: wrap;
+
+                gap: 15px;
+
+            }
+
+            .konsep-section {
+
+                padding: 55px 5%;
+
+            }
+
+
+            .tajuk-section h1 {
+
+                font-size: 36px;
+
+            }
+
+
+            .kad-container {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        /* =====================================
+           RESPONSIVE TELEFON
+           ===================================== */
+
+        @media (max-width: 500px) {
+
+            .konsep-section {
+
+                padding: 40px 5%;
+
+            }
+
+
+            .tajuk-section h1 {
+
+                font-size: 29px;
+
+            }
+
+
+            .tajuk-section small {
+
+                font-size: 13px;
+
+                letter-spacing: 2px;
+
+            }
+
+
+            .tajuk-section p {
+
+                font-size: 15px;
+
+            }
+
+
+            .kad {
+
+                padding: 22px;
+
+            }
+
+
+            .kad img {
+
+                height: 200px;
+
+            }
+
+
+            .kad h2 {
+
+                font-size: 22px;
+
+            }
+
+
+            .kad li {
+
+                font-size: 15px;
+
+                margin-bottom: 10px;
+
+            }
+
+
+            .video-kad {
+
+                padding: 20px;
+
+                margin-top: 30px;
+
+            }
+
+
+            .video-kad h2 {
+
+                font-size: 23px;
+
+            }
+
+
+            .video-kad p {
+
+                font-size: 15px;
+
+            }
+
+
+            footer {
+
+                font-size: 13px;
+
+                padding: 25px 15px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =====================================
+         HEADER LOGO (DITAMBAH)
+         ===================================== -->
+
+    <header>
+
+        <a href="lamanutama.html" class="logo-link">
+
+            <div class="logo">
+
+                <div class="logo-box">GD</div>
+
+                <div>GAYA HIDUP<br>DIGITAL</div>
+
+            </div>
+
+        </a>
+
+    </header>
+
+
+    <!-- =====================================
+         BAR MENU NAVIGASI (DITAMBAH)
+         ===================================== -->
+
+    <nav>
+
+        <a href="lamanutama.html">Laman Utama</a>
+
+        <a href="kandungan.html" class="active">Kandungan</a>
+
+        <a href="kuizdigital.html">Kuiz</a>
+
+        <a href="rujukan.html">Rujukan</a>
+
+    </nav>
+
+
+    <!-- =====================================
+         BAHAGIAN KANDUNGAN SAHAJA
+         ===================================== -->
+
+    <section class="konsep-section"
+             id="kandungan">
+
+
+        <!-- =====================================
+             TAJUK KANDUNGAN
+             ===================================== -->
+
+        <div class="tajuk-section">
+
+            <small>
+                KEHIDUPAN DIGITAL
+            </small>
+
+
+            <h1>
+                Kandungan Gaya Hidup Digital
+            </h1>
+
+
+            <p>
+                Ketahui ciri-ciri, kesan dan amalan
+                yang berkaitan dengan penggunaan
+                teknologi digital dalam kehidupan.
+            </p>
+
+        </div>
+
+
+
+        <!-- =====================================
+             KAD KANDUNGAN
+             ===================================== -->
+
+        <div class="kad-container">
+
+
+            <!-- =================================
+                 KAD 1 - CIRI-CIRI
+                 ================================= -->
+
+            <div class="kad">
+
+                <img src="ciri ciri.jpg"
+                     alt="ciri-ciri">
+
+
+                <h2>
+                    Ciri-ciri Gaya Hidup Digital
+                </h2>
+
+
+                <ul>
+
+                    <li>
+                        Penggunaan teknologi dalam
+                        kehidupan harian
+                    </li>
+
+
+                    <li>
+                        Bergantung kepada internet
+                    </li>
+
+
+                    <li>
+                        Penggunaan peranti pintar
+                    </li>
+
+
+                    <li>
+                        Komunikasi secara digital
+                    </li>
+
+
+                    <li>
+                        Urusan dilakukan secara
+                        dalam talian
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- =================================
+                 KAD 2 - KESAN POSITIF
+                 ================================= -->
+
+            <div class="kad">
+
+                <img src="kesan positif.jpg"
+                     alt="Kesan Positif">
+
+
+                <h2>
+                    Kesan Positif Gaya Hidup Digital
+                </h2>
+
+
+                <ul>
+
+                    <li>
+                        Memudahkan komunikasi
+                    </li>
+
+
+                    <li>
+                        Menjimatkan masa
+                    </li>
+
+
+                    <li>
+                        Memudahkan pembelajaran
+                    </li>
+
+
+                    <li>
+                        Maklumat mudah diperoleh
+                    </li>
+
+
+                    <li>
+                        Meningkatkan produktiviti
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- =================================
+                 KAD 3 - KESAN NEGATIF
+                 ================================= -->
+
+            <div class="kad">
+
+                <img src="kesan negatif.jpg"
+                     alt="Kesan Negatif">
+
+
+                <h2>
+                    Kesan Negatif Gaya Hidup Digital
+                </h2>
+
+
+                <ul>
+
+                    <li>
+                        Ketagihan peranti
+                    </li>
+
+
+                    <li>
+                        Kurang interaksi bersemuka
+                    </li>
+
+
+                    <li>
+                        Risiko penipuan dalam talian
+                    </li>
+
+
+                    <li>
+                        Kebocoran maklumat peribadi
+                    </li>
+
+
+                    <li>
+                        Penggunaan teknologi secara
+                        berlebihan
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- =================================
+                 KAD 4 - AMALAN SELAMAT
+                 ================================= -->
+
+            <div class="kad">
+
+                <img src="amalan digital.jpg"
+                     alt="Amalan digital">
+
+
+                <h2>
+                    Amalan Digital yang Selamat
+                </h2>
+
+
+                <ul>
+
+                    <li>
+                        Menggunakan kata laluan
+                        yang kuat
+                    </li>
+
+
+                    <li>
+                        Tidak berkongsi maklumat
+                        peribadi
+                    </li>
+
+
+                    <li>
+                        Mengelakkan pautan
+                        mencurigakan
+                    </li>
+
+
+                    <li>
+                        Berhati-hati ketika
+                        menggunakan media sosial
+                    </li>
+
+
+                    <li>
+                        Menggunakan aplikasi daripada
+                        sumber yang dipercayai
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             VIDEO PENDEK
+             ===================================== -->
+
+        <div class="video-kad">
+
+
+            <h2>
+                Video Pendek: Gaya Hidup Digital
+            </h2>
+
+
+            <p>
+                Tonton video pendek
+            </p>
+
+
+            <video controls>
+
+                <source
+                    src="video kandungan.mp4"
+                    type="video/mp4">
+
+                Pelayar anda tidak menyokong
+                video HTML5.
+
+            </video>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================
+         FOOTER
+         ===================================== -->
+
+    <footer>
+
+        <p>
+            ©️ 2026 Gaya Hidup Digital |
+
+            Dibangunkan oleh FATIHAH BINTI ABDULLAH |
+
+            1 DIPLOMA TEKNOLOGI MAKLUMAT
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

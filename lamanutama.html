@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ms">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaya Hidup Digital</title>
+
+    <style>
+        /* =========================================
+           WARNA WEBSITE
+           ========================================= */
+        :root {
+            --warna-utama: #FCDFBA;
+            --warna-latar: #FEF3E7;
+            --warna-gelap: #2F3542;
+            --warna-coklat: #B9826B;
+            --warna-putih: #FFFFFF;
+            --warna-bar-menu: #0b2545;
+        }
+
+        /* =========================================
+           ASAS WEBSITE
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--warna-latar);
+            color: var(--warna-gelap);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           HEADER ATAS (TANPA AUDIO)
+           ========================================= */
+        header {
+            background-color: var(--warna-putih);
+            padding: 20px 7%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .logo-box {
+            width: 48px;
+            height: 48px;
+            background-color: var(--warna-utama);
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* =========================================
+           BAR MENU
+           ========================================= */
+        nav {
+            background-color: var(--warna-bar-menu);
+            width: 100%;
+            padding: 12px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--warna-putih);
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px 12px;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--warna-utama);
+        }
+
+        /* =========================================
+           HERO
+           ========================================= */
+        .hero {
+            min-height: 560px;
+            padding: 80px 7%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            background-color: var(--warna-latar);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text small {
+            color: var(--warna-coklat);
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin: 20px 0;
+        }
+
+        .hero-text h1 span {
+            color: var(--warna-coklat);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        /* =========================================
+           BUTANG TEROKAI SEKARANG
+           ========================================= */
+        .butang {
+            display: inline-block;
+            background-color: var(--warna-coklat);
+            color: white;
+            border: none;
+            text-decoration: none;
+            padding: 14px 26px;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            z-index: 10;
+        }
+
+        .butang:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(185, 130, 107, 0.35);
+        }
+
+        .hero-image {
+            background-color: var(--warna-utama);
+            padding: 25px;
+            border-radius: 30px;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 22px;
+            display: block;
+            margin: auto;
+        }
+
+        /* =========================================
+           BAHAGIAN KANDUNGAN
+           ========================================= */
+        .konsep-section {
+            padding: 70px 7%;
+        }
+
+        .tajuk-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tajuk-section small {
+            color: var(--warna-coklat);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .tajuk-section h2 {
+            font-size: 36px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* PEMUTAR LAGU DI BAHAWAH TAJUK */
+        .tajuk-audio {
+            margin-top: 15px;
+            width: 100%;
+            max-width: 350px;
+            outline: none;
+        }
+
+        .kad-container {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .kad {
+            background-color: var(--warna-putih);
+            border: 2px solid var(--warna-utama);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+            transition: 0.3s;
+        }
+
+        .kad:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .kad img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .kad h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .kad p {
+            margin-bottom: 15px;
+        }
+
+        .kad ul {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .kad li {
+            margin-bottom: 10px;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            background-color: var(--warna-gelap);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        /* =========================================
+           POPUP APA ITU GAYA HIDUP DIGITAL
+           ========================================= */
+        .kesan-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(47, 53, 66, 0.65);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .kesan-popup {
+            background-color: var(--warna-putih);
+            width: 100%;
+            max-width: 750px;
+            padding: 40px;
+            border-radius: 25px;
+            position: relative;
+            animation: muncul 0.4s ease;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes muncul {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .kesan-popup h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 32px;
+            color: var(--warna-gelap);
+        }
+
+        .tutup {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            border: none;
+            background: none;
+            font-size: 32px;
+            cursor: pointer;
+            color: var(--warna-gelap);
+        }
+
+        .tutup:hover {
+            color: var(--warna-coklat);
+        }
+
+        .digital-info {
+            text-align: center;
+        }
+
+        .digital-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background-color: var(--warna-utama);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--warna-gelap);
+        }
+
+        .digital-info p {
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .contoh-digital {
+            background-color: var(--warna-latar);
+            padding: 25px;
+            border-radius: 20px;
+            text-align: left;
+            margin-top: 25px;
+            border: 2px solid var(--warna-utama);
+        }
+
+        .contoh-digital h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--warna-coklat);
+        }
+
+        .contoh-digital ul {
+            padding-left: 25px;
+        }
+
+        .contoh-digital li {
+            margin-bottom: 10px;
+        }
+
+        .kesimpulan {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: var(--warna-utama);
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 850px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 60px 5%;
+            }
+
+            .hero-text h1 {
+                font-size: 45px;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .kad-container {
+                grid-template-columns: 1fr;
+            }
+
+            .konsep-section {
+                padding: 50px 5%;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .tajuk-section h2 {
+                font-size: 28px;
+            }
+
+            .kad {
+                padding: 18px;
+            }
+
+            .hero-image img {
+                height: 250px;
+            }
+
+            .kesan-popup {
+                padding: 30px 20px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .kesan-popup h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER ATAS (TANPA AUDIO)
+         ========================================= -->
+    <header>
+        <a href="lamanutama.html" class="logo-link">
+            <div class="logo">
+                <div class="logo-box">GD</div>
+                <div>GAYA HIDUP<br>DIGITAL</div>
+            </div>
+        </a>
+    </header>
+
+    <!-- =========================================
+         BAR MENU
+         ========================================= -->
+    <nav>
+        <a href="lamanutama.html" class="active">Laman Utama</a>
+        <a href="kandungan.html">Kandungan</a>
+        <a href="kuizdigital.html">Kuiz</a>
+        <a href="rujukan.html">Rujukan</a>
+    </nav>
+
+    <!-- =========================================
+         HERO
+         ========================================= -->
+    <section class="hero" id="utama">
+        <div class="hero-text">
+            <small>DIGITAL LIFESTYLE</small>
+            <h1>Hidup Lebih <span>Digital.</span></h1>
+            <p>
+                Terokai bagaimana teknologi digital
+                membentuk cara kita belajar,
+                berkomunikasi dan menjalani
+                kehidupan seharian.
+            </p>
+
+            <button type="button" class="butang" onclick="bukaKesan()">
+                TEROKAI SEKARANG →
+            </button>
+        </div>
+
+        <div class="hero-image">
+            <img src="hero.jpg" alt="Gaya Hidup Digital">
+        </div>
+    </section>
+
+    <!-- =========================================
+         BAHAGIAN KANDUNGAN
+         ========================================= -->
+    <section class="konsep-section" id="kandungan">
+        <div class="tajuk-section">
+            <small>KEHIDUPAN DIGITAL</small>
+            <h2>Teknologi Memudahkan Kehidupan</h2>
+            
+            <!-- PEMUTAR LAGU DIBAWAH TAJUK (DISESUAIKAN UNTUK FILE AUDIO MPEG) -->
+            <audio controls class="tajuk-audio">
+                <source src="audio.mpeg" type="audio/mpeg">
+                <source src="audio.mp3" type="audio/mpeg">
+                <source src="audio" type="audio/mpeg">
+                
+            </audio>
+        </div>
+
+        <div class="kad-container">
+            <div class="kad">
+                <img src="bagaimana.jpg" alt="Bagaimana Gaya Hidup Digital Terjadi?">
+                <h3>Bagaimana Gaya Hidup Digital Terjadi?</h3>
+                <p>Ia wujud kerana:</p>
+                <ul>
+                    <li>Kemajuan internet</li>
+                    <li>Penggunaan peranti pintar seperti smartphone, laptop dan smartwatch</li>
+                    <li>Platform digital seperti media sosial, e-wallet dan aplikasi kerja</li>
+                </ul>
+                <p>
+                    Teknologi ini menjadikan hidup
+                    lebih laju, lebih mudah dan lebih
+                    bergantung kepada dunia digital.
+                </p>
+            </div>
+
+            <div class="kad">
+                <img src="kad 2.jpg" alt="Kenapa Gaya Hidup Digital Penting Pada Masa Kini?">
+                <h3>Kenapa Gaya Hidup Digital Penting Pada Masa Kini?</h3>
+                <ul>
+                    <li>Dunia semakin automatik & moden</li>
+                    <li>Ekonomi global bergantung pada teknologi</li>
+                    <li>Peluang kerjaya banyak dalam sektor digital</li>
+                    <li>Meningkatkan kecekapan hidup</li>
+                    <li>Menyediakan kemahiran masa depan (digital skills)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         POPUP APA ITU GAYA HIDUP DIGITAL
+         ========================================= -->
+    <div id="kesanBox" class="kesan-overlay">
+        <div class="kesan-popup">
+            <button type="button" class="tutup" onclick="tutupKesan()">×</button>
+
+            <h2>Apa Itu Gaya Hidup Digital?</h2>
+
+            <div class="digital-info">
+                <div class="digital-icon">GD</div>
+
+                <p>
+                    <strong>Gaya Hidup Digital</strong> ialah cara kehidupan manusia
+                    yang menggunakan teknologi digital dalam aktiviti harian.
+                </p>
+
+                <p>
+                    Teknologi seperti telefon pintar, komputer, internet dan aplikasi
+                    digital membantu kita dalam pelbagai urusan seperti pembelajaran,
+                    komunikasi, pekerjaan dan hiburan.
+                </p>
+
+                <div class="contoh-digital">
+                    <h3>Contoh Gaya Hidup Digital</h3>
+                    <ul>
+                        <li>Menggunakan telefon pintar</li>
+                        <li>Belajar menggunakan platform digital</li>
+                        <li>Menggunakan e-wallet untuk pembayaran</li>
+                        <li>Berkomunikasi melalui media sosial</li>
+                        <li>Membeli barangan secara dalam talian</li>
+                    </ul>
+                </div>
+
+                <p class="kesimpulan">
+                    Teknologi digital menjadikan kehidupan lebih mudah, cepat dan berhubung.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer>
+        <p>
+            ©️ 2026 Gaya Hidup Digital |
+            Dibangunkan oleh FATIHAH BINTI ABDULLAH |
+            1 DIPLOMA TEKNOLOGI MAKLUMAT
+        </p>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+    <script>
+        function bukaKesan() {
+            document.getElementById("kesanBox").style.display = "flex";
+        }
+
+        function tutupKesan() {
+            document.getElementById("kesanBox").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var box = document.getElementById("kesanBox");
+            if (event.target === box) {
+                tutupKesan();
+            }
+        };
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                tutupKesan();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
